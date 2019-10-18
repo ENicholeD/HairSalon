@@ -1,0 +1,29 @@
+@using HairSalon.Models;
+@model HairSalon.Models.Stylists;
+
+<h2>@Html.DisplayNameFor(model => model.FirstName): @Html.DisplayFor(model => model.FirstName)</h2>
+<h2>@Html.DisplayNameFor(model => model.LastName): @Html.DisplayFor(model => model.LastName)</h2>
+
+<h4>Stylist's Customers</h4>
+@if(ViewBag.RelatedCustomers.Count == 0)
+{
+  <p>They have no customers at this time.</p>
+}
+else
+{
+  <ul>
+  @foreach (var customer in ViewBag.RelatedCustomers)
+  {
+      <h3><li>@Html.ActionLink($"{customer.Name}", "Show", "Store", new {id = item.CustomerId})</li></h3>
+  }
+  </ul>
+}
+
+
+<br>
+
+@Html.ActionLink("Delete This Stylists", "Delete", new {id = Model.stylistId})
+
+@Html.ActionLink("Update This Stylist", "Update", new {id = Model.stylistId})
+
+@Html.ActionLink("Back to Stylist List", "Index")
