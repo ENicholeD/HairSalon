@@ -10,42 +10,9 @@ namespace HairSalon
 {
   public class Startup
   {
-    public Startup(IHostingEnvironment env)
+    public static class DBConfiguration
     {
-      var builder = new ConfigurationBuilder()
-          .SetBasePath(env.ContentRootPath)
-          .AddJsonFile("appsettings.json");
-      Configuration = builder.Build();
-    }
-
-    public IConfigurationRoot Configuration { get; set; }
-
-    public void ConfigureServices(IServiceCollection services)
-    {
-      services.AddMvc();
-      services.AddEntityFrameworkMySql()
-        .AddDbContext<SalonContext>(options => options
-        .UseMySql(Configuration["ConnectionStrings:HairSalonConnection"]));
-    }
-
-    public void Configure(IApplicationBuilder app)
-    {
-      app.UseStaticFiles(); //need this for CSS styling
-
-      app.UseDeveloperExceptionPage();
-
-      app.UseMvc(routes =>
-      {
-        routes.MapRoute(
-          name: "default",
-          template: "{controller=Home}/{action=Index}/{id?}");
-      });
-
-      app.Run(async (context) =>
-      {
-        await context.Response.WriteAsync("Something went wrong!");
-      });
-
+        public static string ConnectionString = "server=localhost;  user id=root;password=epicodus;port=3306;database=salon;";
     }
   }
 }
