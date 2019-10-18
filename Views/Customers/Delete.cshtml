@@ -1,0 +1,9 @@
+@model HairSalon.Models.Customer;
+
+<h3 id="danger">Are you sure you want to delete this customer?</h3>
+
+@using (Html.BeginForm())
+{
+  <input type="submit" value="Delete" class="btn btn-danger"/>
+}
+@Html.ActionLink("No, Back to Details", "Index")

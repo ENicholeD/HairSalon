@@ -1,0 +1,11 @@
+@model HairSalon.Models.Customer;
+
+<h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
+<h3>@Html.DisplayNameFor(model => model.Gender): @Html.DisplayFor(model => model.Gender)</h3>
+
+<br>
+@Html.ActionLink("Delete This Customer", "Delete", new {id = Model.customerId})
+
+@Html.ActionLink("Update This Customer", "Update", new {id = Model.customerId})
+
+@Html.ActionLink("Back to Customer List", "Index")

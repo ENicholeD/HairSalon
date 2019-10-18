@@ -1,0 +1,23 @@
+@model HairSalon.Models.Customer;
+
+<h2>Edit</h2>
+<h4>Customer name: @Html.DisplayFor(model => model.Name)</h4>
+<h4>Customer gender: @Html.DisplayFor(model => model.Gender)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.CustomerId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" }})
+    <br>
+    @Html.LabelFor(model => model.Gender)
+    @Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" }})
+    <br>
+    @Html.LabelFor(model => model.Stylists)
+    @Html.DropDownList("StylistId")
+    
+    <input type="submit" value="Save"/>
+}
+<br>
+<p>@Html.ActionLink("Back to Customer List", "Index")</p>
