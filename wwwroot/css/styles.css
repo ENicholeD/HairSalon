@@ -2,6 +2,7 @@ body
 {
     background-color: #2f9576;
     color: #414a86;
+    text-align: center;
 }
 
 .jumbotron
@@ -12,12 +13,18 @@ body
 
 a 
 {
-    background-color: #3d3579;
-    color: 	#27617b;
+    background-color: #27617b;
+    color: 	#3d3579;
 }
 img
 {
     margin-left: auto;
     margin-right: auto;
     width: 200px;
+    margin: 10px;
+}
+hr
+{
+ border: 3px dashed #3d3579;
+ border-radius: 100px;
 }

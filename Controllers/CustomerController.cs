@@ -5,61 +5,59 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Customer.Controllers
+namespace HairSalon.Controllers
 {
-  public class CustomersController : Controller
+  public class CustomerController : Controller
   {
     private readonly SalonContext _db;
-    public StoreController(SalonContext db)
+    public CustomerController(SalonContext db)
     {
       _db = db;
     }
     [HttpGet]
     public ActionResult Index()
     {
-      List<Customer> model = _db.Customers.Include(customers => customers.cutsomerName).ToList();
+      List<Customer> model = _db.Customers.ToList();
       return View(model);
     }
     [HttpGet]
     public ActionResult Create()
-    {
-         
-        ViewBag.customerId = new SelectList(_db.Stylists, "stylistsId", "LastName");
+    { 
         return View();
     }
     [HttpPost]
     public ActionResult Create(Customer customer)
     {
-        _db.Stores.Add(customer);
+        _db.Customers.Add(customer);
         _db.SaveChanges();
         return RedirectToAction("Index");
     }
      [HttpGet]
     public ActionResult Show(int id)
     {
-      Customer thisCustomer = _db.Customers.FirstOrDefault( customers => customers.customerId == id);
+      Customer thisCustomer = _db.Customers.FirstOrDefault( customers => customers.CustomerId == id);
 
       return View(thisCustomer);
     }
      [HttpGet]
     public ActionResult Delete(int id)
     {
-      Customer thisCustomer = _db.Customers.FirstOrDefault( customers => customers.customerId == id);
+      Customer thisCustomer = _db.Customers.FirstOrDefault( customers => customers.CustomerId == id);
       return View(thisCustomer);
     }
      [HttpPost, ActionName("Delete")]
     public ActionResult Destroy(int id)
     {
-      Store thisCustomer = _db.Customers.FirstOrDefault( customers => customers.customerId ==  id);
-      _db.customers.Remove(thisCustomer);
+      Customer thisCustomer = _db.Customers.FirstOrDefault( customers => customers.CustomerId ==  id);
+      _db.Customers.Remove(thisCustomer);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
      [HttpGet]
     public ActionResult Update(int id)
     {
-      Store thisCustomer = _db.Customers.FirstOrDefault( customers => customers.customerId == id);
-      ViewBag.StylistId = new SelectList(_db.stylists, "StylistsId", "LastName");
+      Customer thisCustomer = _db.Customers.FirstOrDefault( customers => customers.CustomerId == id);
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistsId", "LastName");
       return View(thisCustomer);
     }
     [HttpPost, ActionName("Update")]

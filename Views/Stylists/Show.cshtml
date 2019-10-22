@@ -2,7 +2,7 @@
   Layout = "_Layout";
 }
 @using HairSalon.Models;
-@model HairSalon.Models.Stylists;
+@model HairSalon.Models.Stylist;
 
 <h2>@Html.DisplayNameFor(model => model.FirstName): @Html.DisplayFor(model => model.FirstName)</h2>
 <h2>@Html.DisplayNameFor(model => model.LastName): @Html.DisplayFor(model => model.LastName)</h2>
@@ -17,7 +17,7 @@ else
   <ul>
   @foreach (var customer in ViewBag.RelatedCustomers)
   {
-      <h3><li>@Html.ActionLink($"{customer.Name}", "Show", "Store", new {id = item.CustomerId})</li></h3>
+      <h3><li>@Html.ActionLink($"{customer.Name}", "Show", "Store", new {id = customer.CustomerId})</li></h3>
   }
   </ul>
 }
@@ -25,8 +25,8 @@ else
 
 <br>
 
-@Html.ActionLink("Delete This Stylists", "Delete", new {id = Model.stylistId})
+@Html.ActionLink("Delete This Stylists", "Delete", new {id = Model.StylistId})
 
-@Html.ActionLink("Update This Stylist", "Update", new {id = Model.stylistId})
+@Html.ActionLink("Update This Stylist", "Update", new {id = Model.StylistId})
 
 @Html.ActionLink("Back to Stylist List", "Index")
