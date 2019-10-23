@@ -5,24 +5,36 @@ This program was made for my 4th week of C# to illistrate my understanding of th
 #### By Erin Deuel on 10/18/2019
 
 ## Description
-
+This program is to demonstate my understanding of Databases and Migrations. I used SqLite Instead of MySQL because I ran into server errors and felt that SqLite would help me get around it.
 
 ## Specs
 
 | Behavior | Input | Output |
 | ------------- |:-------------:| -----:|
-|  |  |  |
+| create a Stylist | "Fred", "Mandez" | Fred Mandez |
+| update selected Stylist | "Fred Mendez" to "Fredrick", "Mendez" | Fredrick Mendez |
+| Create a Customer | "Anthony Pedilla" | Anthony Pedilla |
+| Update selected Customer | "Anthony Pedilla" to "Andy Pedilla" | Andy Pedilla |
 
 
 ## Setup Instructions
 
-* go to https://github.com/MagpieMortician/HairSalon
-* clone down repository to your desktop
-* recreate mySQL table
+1. go to https://github.com/MagpieMortician/HairSalon
+2. clone down repository to your desktop
+3. Make sure you have SqLite Extension on your text editor
+    * You won't need to worry about making a table, SqLite does it for you
+4. run dotnet watch run in your terminal
+5. open up a localhost server
+    * ctrl + click for Windows
+    * cmd + click for Mac
+6. Click around in the website
+7. exit the live server
+    * ctrl + c in terminal for Windows
+    * cmd +c in terminal for Mac
 
 ## Known Bugs
 
-* Page won't load because of inability to load a table from mySQL
+There are no known bugs
 
 ## Support and contact details
 
