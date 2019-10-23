@@ -13,10 +13,9 @@
     <ul>
     @foreach (Customer customer in Model)
     {
-        <h3><li>@Html.ActionLink($"{customer.Name}", "Show", "Customer",new {id = customer.CustomerId})</li></h3>
+        <h3><li>@Html.ActionLink($"{customer.Name}", "Show", "Customers",new {id = customer.CustomerId})</li></h3>
     }
     </ul>
 }
-<a href="/Customer/Create">Add Customer</a>
 
 <a href="/">Back to homepage</a>

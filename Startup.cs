@@ -5,7 +5,7 @@
   using Microsoft.Extensions.DependencyInjection;
   using Microsoft.EntityFrameworkCore;
   using HairSalon.Models;
-
+  
   namespace HairSalon
   {
       public class Startup
@@ -18,13 +18,13 @@
             Configuration = builder.Build();
         }
           public IConfigurationRoot Configuration {get; set;}
-            public void ConfigureServices(IServiceCollection services)
-            {
-          services.AddMvc();
-          services.AddEntityFrameworkMySql()
-            .AddDbContext<SalonContext>(options => options
-            .UseMySql(Configuration["ConnectionStrings:salonConnection"]));
-            }  
+             public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc();
+            services.
+              AddDbContext<SalonContext>(options => options
+              .UseSqlite(Configuration["ConnectionStrings:DefaultConnection"]));
+        }
             public void Configure(IApplicationBuilder app)
       {
         app.UseStaticFiles(); //need this for CSS styling

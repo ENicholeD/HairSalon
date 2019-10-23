@@ -7,10 +7,10 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace HairSalon.Controllers
 {
-  public class CustomerController : Controller
+  public class CustomersController : Controller
   {
     private readonly SalonContext _db;
-    public CustomerController(SalonContext db)
+    public CustomersController(SalonContext db)
     {
       _db = db;
     }
@@ -23,6 +23,7 @@ namespace HairSalon.Controllers
     [HttpGet]
     public ActionResult Create()
     { 
+        ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "LastName");
         return View();
     }
     [HttpPost]
@@ -57,7 +58,7 @@ namespace HairSalon.Controllers
     public ActionResult Update(int id)
     {
       Customer thisCustomer = _db.Customers.FirstOrDefault( customers => customers.CustomerId == id);
-      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistsId", "LastName");
+      ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "LastName");
       return View(thisCustomer);
     }
     [HttpPost, ActionName("Update")]

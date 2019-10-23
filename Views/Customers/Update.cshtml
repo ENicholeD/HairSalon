@@ -12,7 +12,10 @@
     @Html.HiddenFor(model => model.CustomerId)
 
     @Html.LabelFor(model => model.Name)
-    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" }})
+    @Html.EditorFor(model => model.Name, new { @class = "form-control" })
+
+    @Html.LabelFor(model => model.Stylist)
+    @Html.DropDownList("StylistId")
 
     <input type="submit" value="Save"/>
 }

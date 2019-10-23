@@ -10,7 +10,11 @@
 {
   @Html.LabelFor(model => model.Name)
   @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
-  <input type="submit" value="Add Customer" class="btn btn-default" />
+
+  @Html.LabelFor(model => model.Stylist)
+    @Html.DropDownList("StylistId")
+
+  <input type="submit" value="Add new customer" class="btn btn-default" />
 }
 <br>
 @Html.ActionLink("Back to Customers", "Index")

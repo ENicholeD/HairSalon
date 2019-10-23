@@ -17,14 +17,14 @@ else
   <ul>
   @foreach (var customer in ViewBag.RelatedCustomers)
   {
-      <h3><li>@Html.ActionLink($"{customer.Name}", "Show", "Store", new {id = customer.CustomerId})</li></h3>
+      <h3><li>@Html.ActionLink($"{customer.Name}", "Show", "Customers", new {id = customer.CustomerId})</li></h3>
   }
   </ul>
 }
 
 
 <br>
-
+<a href="/Customers/Create">Add Customer</a>
 @Html.ActionLink("Delete This Stylists", "Delete", new {id = Model.StylistId})
 
 @Html.ActionLink("Update This Stylist", "Update", new {id = Model.StylistId})
